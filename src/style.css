@@ -1,0 +1,164 @@
+/* src/style.css */
+
+/* Importa a fonte que vamos usar para o timer */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
+
+body {
+    /* Evita que a página "pule" ao segurar a barra de espaço */
+    overflow: hidden;
+}
+
+#scramble {
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px 20px;
+    border-radius: 8px;
+    user-select: none; /* Impede a seleção do texto */
+    cursor: pointer; /* Indica que é clicável */
+    transition: background-color 0.2s;
+}
+
+#scramble:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#timer {
+    font-family: "Roboto Mono", monospace;
+    user-select: none; /* Impede a seleção do texto */
+    transition: color 0.15s ease-in-out;
+}
+
+/* Timer grande e centralizado */
+#timer {
+    font-size: 3.75rem;
+    letter-spacing: 0.02em;
+}
+
+/* Cores para o estado do timer (usado via JS) */
+.timer-ready {
+    color: #28a745; /* Verde */
+}
+
+.timer-running {
+    color: #dc3545; /* Vermelho */
+}
+
+#times-list .list-group-item {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Card e layout */
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+}
+
+/* Mantém o cartão com tamanho estável e organiza o conteúdo internamente */
+.card {
+    min-height: 420px; /* mantém uma altura agradável em desktop */
+    display: flex;
+    flex-direction: column;
+    /* Allow card to be wider on large screens but avoid stretching too far */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+}
+
+#scramble {
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 12px 16px;
+    border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+/* Mantém o scramble em uma única linha; permite scroll horizontal quando necessário */
+#scramble {
+    display: block;
+    width: 100%;
+    white-space: nowrap; /* evita wrap */
+    overflow-x: auto; /* permite rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* rolagem suave no mobile */
+    padding-right: 8px; /* espaço para a barra de rolagem interna */
+}
+
+/* Em telas largas, reduzimos levemente a fonte do scramble para caber melhor */
+@media (min-width: 1100px) {
+    #scramble {
+        font-size: 0.95rem;
+        letter-spacing: 0.01em;
+    }
+}
+
+@media (min-width: 1400px) {
+    #scramble {
+        font-size: 0.9rem;
+    }
+}
+
+#scramble::-webkit-scrollbar {
+    height: 8px;
+}
+#scramble::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+}
+
+#scramble:active {
+    transform: scale(0.995);
+}
+
+/* Buttons */
+.btn-lg {
+    padding: 0.6rem 1.1rem;
+}
+
+/* Footer instructions */
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+    #timer {
+        font-size: 2.5rem;
+    }
+    .card {
+        min-height: 360px;
+    }
+}
+
+/* Seção de tempos: altura fixa com barra de rolagem interna */
+#times-section {
+    /* Não permitirá que a lista force o cartão a crescer */
+    max-height: 160px;
+    overflow: hidden;
+}
+
+#times-list {
+    display: block;
+    max-height: 140px; /* um pouco menor que o container para dar espaço */
+    overflow-y: auto;
+    padding-right: 8px; /* espaço para a barra de rolagem sem cortar texto */
+}
+
+/* Estiliza a barra de rolagem (WebKit) para ficar mais discreta */
+#times-list::-webkit-scrollbar {
+    width: 8px;
+}
+#times-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+#times-list::-webkit-scrollbar-track {
+    background: transparent;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Timer Cuber</title>
+    </head>
+    <body class="d-flex flex-column vh-100">
+        <main class="container flex-grow-1 d-flex flex-column justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-9 col-xl-10">
+                    <div class="card shadow-lg">
+                        <div class="card-body p-4 p-md-5 text-center">
+                            <!-- Scramble -->
+                            <p id="scramble" class="fs-5 mb-4">...</p>
+
+                            <!-- Timer -->
+                            <div id="timer" class="display-1 fw-bold mb-4">0.00</div>
+
+                            <!-- Controles -->
+                            <div class="d-flex justify-content-center gap-2 mb-3">
+                                <button class="btn btn-lg btn-primary" id="startButton">
+                                    Iniciar / Parar
+                                </button>
+                                <button class="btn btn-lg btn-secondary" id="resetButton">
+                                    Resetar
+                                </button>
+                                <button class="btn btn-lg btn-outline-warning" id="generateButton">
+                                    Gerar
+                                </button>
+                                <button class="btn btn-lg btn-outline-danger" id="clearAllButton">
+                                    Limpar tudo
+                                </button>
+                            </div>
+
+                            <!-- Estatísticas -->
+                            <div
+                                id="stats"
+                                class="d-flex justify-content-around text-muted small mb-3"
+                            >
+                                <div>
+                                    <strong id="best-time">-</strong>
+                                    <div class="text-muted">Melhor</div>
+                                </div>
+                                <div>
+                                    <strong id="avg-last5">-</strong>
+                                    <div class="text-muted">Média (últ. 5)</div>
+                                </div>
+                                <div>
+                                    <strong id="avg-global">-</strong>
+                                    <div class="text-muted">Média (global)</div>
+                                </div>
+                                <div>
+                                    <strong id="ao5">-</strong>
+                                    <div class="text-muted">Ao5 (WCA)</div>
+                                </div>
+                                <div>
+                                    <strong id="ao12">-</strong>
+                                    <div class="text-muted">Ao12</div>
+                                </div>
+                                <div>
+                                    <strong id="count-times">0</strong>
+                                    <div class="text-muted">Registros</div>
+                                </div>
+                            </div>
+
+                            <!-- Lista de Tempos -->
+                            <div id="times-section" class="mt-5">
+                                <h5>Últimos Tempos</h5>
+                                <ul id="times-list" class="list-group list-group-flush">
+                                    <!-- Os tempos serão inseridos aqui via JS -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center text-muted py-3">
+            <p>
+                Pressione a barra de espaço para iniciar/parar. Clique no embaralhamento para gerar
+                um novo.
+            </p>
+        </footer>
+
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>
